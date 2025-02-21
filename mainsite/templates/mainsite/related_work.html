@@ -1,0 +1,115 @@
+{% extends "mainsite/base.html"%}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Trabalhos Relacionados" %}{% endblock title %}
+
+{% block content %}
+<div class="row px-3 px-md-5 g-4" style="margin-top: 3.5rem">
+    <div class="col-12 col-lg-6 mt-5">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<div class="row d-flex align-items-center justify-content-center mt-3 mb-3 px-3 px-md-5 g-2">
+    <div class="col-12 col-lg-6 fs-4" style="text-align: justify;">
+        <p class="OrangeText d-flex align-items-center uppercase mt-3">
+            {% trans "Trabalhos Relacionados" %}
+        </p>
+    </div>
+    </div>
+    {% if related_works %}
+    <div class="row d-flex align-items-stretch justify-content-center mt-3 mb-5 px-3 px-md-5 g-2" id="cardRow">
+        {% for related_work in related_works %}
+        <div class="col-8 col-lg-12 fs-4 mb-3">
+            <div class="card h-100">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{{ related_work.images.first.image.url }}" class="img-fluid rounded-start card-img-top" alt="...">
+                    </div>
+                    <div class="col-md-8 d-flex flex-column">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ related_work.title }}</h5>
+                            <p class="card-text card-description">{{ related_work.description }}</p>
+                        </div>
+                        <div class="mt-auto d-flex justify-content-center" style="margin-bottom: 2rem;">
+                            <a href="{{ related_work.link }}" class="btn btn-success">{% trans "Ver Artigo" %}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        {% endfor %}
+    </div>
+    
+    <div class="row d-flex justify-content-center mt-3 mb-3">
+        <div class="col-md-6">
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    {% if related_works.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link custom-prev" href="?page=1" tabindex="-1" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% for num in related_works.paginator.page_range %}
+                        <li class="page-item">
+                            <a class="page-link custom-page {% if num == related_works.number %}custom-current{% endif %}" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endfor %}
+                    {% if related_works.has_next %}
+                        <li class="page-item">
+                            <a class="page-link custom-next" href="?page={{ related_works.paginator.num_pages }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    
+    
+{% else %}
+    <div class="row d-flex align-items-center justify-content-center mt-3 mb-5 px-3 px-md-5 g-2">
+        <div class="col-12 col-lg-6 fs-4" style="text-align: justify;">
+            <p>{% trans "Nenhum trabalho relacionado a este projeto foi encontrado." %}</p>
+        </div>
+    </div>
+{% endif %}
+
+<script>
+    window.addEventListener('load', function() {
+        // Obter todos os cards
+        var cards = document.querySelectorAll('.card');
+        
+        // Inicializar a altura máxima
+        var maxHeight = 0;
+        
+        // Loop através de todos os cards para determinar a altura máxima
+        cards.forEach(function(card) {
+            var cardHeight = card.offsetHeight;
+            if (cardHeight > maxHeight) {
+                maxHeight = cardHeight;
+            }
+        });
+        
+        // Definir a altura máxima para todas as imagens
+        var images = document.querySelectorAll('.card-img-top');
+        images.forEach(function(image) {
+            image.style.height = maxHeight + 'px';
+        });
+    });
+</script>
+
+{% endblock content %}

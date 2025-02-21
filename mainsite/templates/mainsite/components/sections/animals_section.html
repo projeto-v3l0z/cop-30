@@ -1,0 +1,142 @@
+{% load i18n %}
+{% load static %}
+<img
+  class="Z-left d-none d-xl-block"
+  src="{% static 'assets/public/img/frame.svg' %}"
+  alt="Pegadas de animal"
+/>
+<img
+  class="footprint-up"
+  src="{% static 'assets/public/img/footprint.svg' %}"
+  alt="Pegadas de animal"
+/>
+<div class="row">
+  <p class="OrangeText">{% trans "Animais resgatados" %}</p>
+  <h1 id="h1ZooAnimals">{% trans "A fauna amazônica como você nunca viu" %}</h1>
+</div>
+
+<div class="row cards-animais">
+  {% if animals %} {% for animal in animals %}
+  <div
+    class="col-12 col-sm-6 col-md-4 col-xl-3 mb-5 justify-content-center align-items-center d-flex"
+    data-animation="fade-up"
+  >
+    <div class="CardAnimal" id="CardAnimal">
+      <div class="CardBack">
+        <div class="ImageContainerAnimal">
+          <img
+            src="{{animal.secondary_image.url}}"
+            alt="{% trans "Foto de" %} {{animal.name}}"
+            class="ImgAnimalBack"
+            loading="lazy"
+          />
+          <div>
+            <p class="NomeAnimalCardBack">{{animal.name}}</p>
+            <span class="TaxonomiaCardBack">{{animal.scientific_name}}</span>
+          </div>
+        </div>
+
+        <div class="CardAnimalBody">
+          <div class="infoAnimal">
+            <span>{% trans "Tipo" %}</span>
+            <p class="tipo">{{animal.type}}</p>
+          </div>
+          <div class="infoAnimal">
+            <span>{% trans "Tempo de vida" %}</span>
+            <p class="lifetime">
+              {{animal.lifetime}} {% if animal.lifetime > 1 %} {% trans "anos" %}{% else %}
+              {% trans "ano" %} {% endif %}
+            </p>
+          </div>
+          <div class="infoAnimal">
+            <span>{% trans "Dieta" %}</span>
+            <p class="dieta">{{animal.diet}}</p>
+          </div>
+          <div class="infoAnimal">
+            <span>{% trans "Peso" %}</span>
+            <p class="weight">{{animal.weight}} {{animal.weight_measure}}</p>
+          </div>
+          <div class="infoAnimal" id="infoAnimalButton">
+            <span>{% trans "Status de ameaça" %}</span>
+            <br />
+            <div
+              class="ameaca {% if animal.status == 'Vulnerável' %} infoAnimalRed {% else %} infoAnimalOrange {% endif %}"
+            >
+              <p class="text-light">{{animal.status}}</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center w-100">
+            <a
+              class="btn btn-success text-light rounded-pill mb-3 w-70"
+              href="{% url 'mainsite:animal_detail' animal.id %}"
+              role="button"
+              target="_blank"
+            >
+            {% trans "Saiba Mais" %}
+            </a>
+          </div>
+        </div>
+        <img
+          class="ArrowBack"
+          src="{% static 'assets/public/icons/corner-up-left.svg' %}"
+          alt="{% trans 'Ícone de seta para retorno' %}"
+        />
+      </div>
+      <div class="CardFront">
+        <div class="imgContainer">
+          <div class="shadow"></div>
+          <img
+            src="{{animal.main_image.url}}"
+            alt="{% trans 'Foto de' %} {{ animal.name }}"
+            class="AnimalImage"
+          />
+          <span class="ImgTitle">{{ animal.name }}</span>
+          <span class="ImgTaxonomia">{{animal.scientific_name}}</span>
+          <img
+            class="InfoButton"
+            src="{% static 'assets/public/icons/info.svg' %}"
+            alt="{% trans 'Botão de informações sobre o animal' %}"
+          />
+          <img
+            class="PlayButton"
+            src="{% static 'assets/public/icons/play-circle.svg' %}"
+            alt="{% trans 'Botão de reprodução de vídeo' %}"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %} {% endif %}
+</div>
+<div class="row leaves">
+  <img
+    class="leaf"
+    src="{% static 'assets/public/img/leaf-2.svg' %}"
+    alt="{% trans "Folha verde" %}"
+  />
+  <img
+    class="leaf2"
+    src="{% static 'assets/public/img/leaf-3.svg' %}"
+    alt="{% trans "Folha laranja" %}"
+  />
+  <img
+    class="footprint"
+    src="{% static 'assets/public/img/footprint.svg' %}"
+    alt="{% trans "Pegadas de animal" %}"
+  />
+  <div class="dialogVideoOverlay" data-dialogVideo>
+    <div class="dialogContainerVideo">
+      <div class="CloseButton" data-iconClose></div>
+      <iframe
+        width="560"
+        height="315"
+        data-video
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        id="animalVideo"
+      ></iframe>
+    </div>
+  </div>
+</div>

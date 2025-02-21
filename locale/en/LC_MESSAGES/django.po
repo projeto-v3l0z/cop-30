@@ -1,0 +1,611 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-02 00:16-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: mainsite/admin.py:7
+msgid "Administração de ZooUnama"
+msgstr "ZooUnama Administration"
+
+#: mainsite/admin.py:8
+msgid "ZooUnama"
+msgstr "ZooUnama"
+
+#: mainsite/forms.py:18 mainsite/forms.py:57
+msgid "Insira seu nome:"
+msgstr "Enter your name:"
+
+#: mainsite/forms.py:29 mainsite/forms.py:68
+msgid "Insira seu e-mail:"
+msgstr "Enter your email:"
+
+#: mainsite/forms.py:40 mainsite/forms.py:79
+msgid "Insira seu telefone:"
+msgstr "Enter your phone:"
+
+#: mainsite/models.py:15
+msgid "Anfíbio"
+msgstr "Amphibian"
+
+#: mainsite/models.py:16
+msgid "Ave"
+msgstr "Bird"
+
+#: mainsite/models.py:17
+msgid "Mamífero"
+msgstr "Mammal"
+
+#: mainsite/models.py:18
+msgid "Peixe"
+msgstr "Fish"
+
+#: mainsite/models.py:19
+msgid "Réptil"
+msgstr "Reptile"
+
+#: mainsite/models.py:23 mainsite/models.py:24
+msgid "Carnívoro"
+msgstr "Carnivore"
+
+#: mainsite/models.py:25
+msgid "Detritívoro"
+msgstr "Detritivore"
+
+#: mainsite/models.py:26 mainsite/models.py:32
+msgid "Frugívoro"
+msgstr "Frugivore"
+
+#: mainsite/models.py:27 mainsite/models.py:33
+msgid "Herbívoro"
+msgstr "Herbivore"
+
+#: mainsite/models.py:28 mainsite/models.py:34
+msgid "Insetívoro"
+msgstr "Insectivore"
+
+#: mainsite/models.py:29 mainsite/models.py:35
+msgid "Invertívoro"
+msgstr "Invertivore"
+
+#: mainsite/models.py:30 mainsite/models.py:36
+msgid "Onívoro"
+msgstr "Omnivore"
+
+#: mainsite/models.py:31 mainsite/models.py:37
+msgid "Perifitívoro"
+msgstr "Periphytivore"
+
+#: mainsite/models.py:41
+msgid "Sem riscos"
+msgstr "No risk"
+
+#: mainsite/models.py:42
+msgid "Vulnerável"
+msgstr "Vulnerable"
+
+#: mainsite/models.py:43
+msgid "Pouco preocupante"
+msgstr "Least concern"
+
+#: mainsite/models.py:51
+msgid "Nome"
+msgstr "Name"
+
+#: mainsite/models.py:52
+msgid "Nome científico"
+msgstr "Scientific name"
+
+#: mainsite/models.py:54
+#: mainsite/templates/mainsite/components/sections/animals_section.html:41
+msgid "Tipo"
+msgstr "Type"
+
+#: mainsite/models.py:59
+#: mainsite/templates/mainsite/components/sections/animals_section.html:45
+msgid "Tempo de vida"
+msgstr "Lifespan"
+
+#: mainsite/models.py:61
+#: mainsite/templates/mainsite/components/sections/animals_section.html:52
+msgid "Dieta"
+msgstr "Diet"
+
+#: mainsite/models.py:66
+#: mainsite/templates/mainsite/components/sections/animals_section.html:56
+msgid "Peso"
+msgstr "Weight"
+
+#: mainsite/models.py:68
+msgid "Unidade de Medida do Peso"
+msgstr "Weight unit"
+
+#: mainsite/models.py:74
+msgid "Status de Risco"
+msgstr "Risk status"
+
+#: mainsite/models.py:79
+msgid "Link para apoio"
+msgstr "Support link"
+
+#: mainsite/models.py:80
+msgid "Imagem Principal"
+msgstr "Main image"
+
+#: mainsite/models.py:81
+msgid "Imagem Secundária"
+msgstr "Secondary image"
+
+#: mainsite/models.py:82 mainsite/models.py:135
+msgid "Vídeo"
+msgstr "Video"
+
+#: mainsite/models.py:84 mainsite/models.py:140 mainsite/models.py:209
+msgid "Criado por"
+msgstr "Created by"
+
+#: mainsite/models.py:85 mainsite/models.py:141 mainsite/models.py:210
+msgid "Criado em"
+msgstr "Created at"
+
+#: mainsite/models.py:86 mainsite/models.py:142 mainsite/models.py:211
+msgid "Atualizado por"
+msgstr "Updated by"
+
+#: mainsite/models.py:87 mainsite/models.py:143 mainsite/models.py:212
+msgid "Atualizado em"
+msgstr "Updated at"
+
+#: mainsite/models.py:90
+msgid "Animal"
+msgstr "Animal"
+
+#: mainsite/models.py:91 templates/mainsite/base.html:63
+msgid "Animais"
+msgstr "Animals"
+
+#: mainsite/models.py:109
+msgid "Banner Principal"
+msgstr "Main banner"
+
+#: mainsite/models.py:110
+msgid "Informações da Indigenazinha"
+msgstr "Little Indigenous Girl Information"
+
+#: mainsite/models.py:111
+msgid "Sobre o Projeto"
+msgstr "About the Project"
+
+#: mainsite/models.py:112
+msgid "Área do Zoológico"
+msgstr "Zoo Area"
+
+#: mainsite/models.py:113
+msgid "Espécies do Zoológico"
+msgstr "Zoo Species"
+
+#: mainsite/models.py:114
+msgid "Live Zoo"
+msgstr "Live Zoo"
+
+#: mainsite/models.py:115
+#: mainsite/templates/mainsite/components/sections/testimonials_section.html:4
+#: templates/mainsite/base.html:66
+msgid "Depoimentos"
+msgstr "Testimonials"
+
+#: mainsite/models.py:116 mainsite/templates/mainsite/related_work.html:6
+#: mainsite/templates/mainsite/related_work.html:24
+#: templates/mainsite/base.html:91
+msgid "Trabalhos Relacionados"
+msgstr "Related Works"
+
+#: mainsite/models.py:117 templates/mainsite/base.html:72
+msgid "Doações"
+msgstr "Donations"
+
+#: mainsite/models.py:118
+#: mainsite/templates/mainsite/donations/food_donation.html:6
+msgid "Doação de Alimentos"
+msgstr "Food Donation"
+
+#: mainsite/models.py:119
+msgid "Adote"
+msgstr "Adopt"
+
+#: mainsite/models.py:120 mainsite/templates/mainsite/exchange.html:6
+#: mainsite/templates/mainsite/exchange.html:27
+#: mainsite/templates/mainsite/exchange.html:29
+#: mainsite/templates/mainsite/exchange_registration.html:21
+#: templates/mainsite/base.html:88
+msgid "Intercâmbio"
+msgstr "Exchange"
+
+#: mainsite/models.py:121
+msgid "Inscrição de Intercâmbio"
+msgstr "Exchange Registration"
+
+#: mainsite/models.py:122
+msgid "Páginas Institucionais"
+msgstr "Institutional Pages"
+
+#: mainsite/models.py:125 mainsite/models.py:137 mainsite/models.py:198
+msgid "Título"
+msgstr "Title"
+
+#: mainsite/models.py:126 mainsite/models.py:199
+msgid "Descrição"
+msgstr "Description"
+
+#: mainsite/models.py:128
+msgid "Onde isso vai aparecer?"
+msgstr "Where will this appear?"
+
+#: mainsite/models.py:133
+msgid "Link"
+msgstr "Link"
+
+#: mainsite/models.py:138
+msgid "Subtítulo"
+msgstr "Subtitle"
+
+#: mainsite/models.py:145
+msgid "Slug"
+msgstr "Slug"
+
+#: mainsite/models.py:156
+msgid "Postagem"
+msgstr "Post"
+
+#: mainsite/models.py:157
+msgid "Postagens"
+msgstr "Posts"
+
+#: mainsite/models.py:165 mainsite/models.py:172
+msgid "Imagem"
+msgstr "Image"
+
+#: mainsite/models.py:168
+msgid "Imagem do Post"
+msgstr "Post Image"
+
+#: mainsite/models.py:169
+msgid "Imagens do Post"
+msgstr "Post Images"
+
+#: mainsite/models.py:176
+msgid "Postagens do tipo \"Depoimento\" só podem ter uma imagem."
+msgstr "Testimonial posts can only have one image."
+
+#: mainsite/models.py:190
+msgid ""
+"O arquivo deve ser \".svg\". Ache bons ícones em <https://icons.getbootstrap."
+"com>."
+msgstr ""
+"The file must be \".svg\". Find good icons at <https://icons.getbootstrap."
+"com>."
+
+#: mainsite/models.py:200
+msgid "Ano"
+msgstr "Year"
+
+#: mainsite/models.py:202
+msgid "Semestre"
+msgstr "Semester"
+
+#: mainsite/models.py:207
+msgid "Arquivo"
+msgstr "File"
+
+#: mainsite/models.py:215
+msgid "Edital"
+msgstr "Notice"
+
+#: mainsite/models.py:216 mainsite/templates/mainsite/exchange.html:33
+msgid "Editais"
+msgstr "Notices"
+
+#: mainsite/templates/mainsite/admin_docs.html:3
+msgid "Documentação da Administração"
+msgstr "Administration Documentation"
+
+#: mainsite/templates/mainsite/components/institutional_page.html:9
+#: mainsite/templates/mainsite/components/institutional_page.html:18
+#: mainsite/templates/mainsite/donations/donation.html:12
+#: mainsite/templates/mainsite/donations/donation.html:21
+#: mainsite/templates/mainsite/donations/food_donation.html:20
+#: mainsite/templates/mainsite/donations/food_donation.html:29
+msgid "ícone relacionado à página."
+msgstr "icon related to the page."
+
+#: mainsite/templates/mainsite/components/sections/animals_section.html:14
+msgid "Animais resgatados"
+msgstr "Rescued animals"
+
+#: mainsite/templates/mainsite/components/sections/animals_section.html:15
+msgid "A fauna amazônica como você nunca viu"
+msgstr "The Amazonian fauna like you've never seen before"
+
+#: mainsite/templates/mainsite/components/sections/animals_section.html:29
+#: mainsite/templates/mainsite/components/sections/animals_section.html:90
+msgid "Foto de"
+msgstr "Photo of"
+
+#: mainsite/templates/mainsite/components/sections/animals_section.html:47
+msgid "anos"
+msgstr "years"
+
+#: mainsite/templates/mainsite/components/sections/animals_section.html:48
+msgid "ano"
+msgstr "year"
+
+#: mainsite/templates/mainsite/components/sections/animals_section.html:60
+msgid "Status de ameaça"
+msgstr "Threat status"
+
+#: mainsite/templates/mainsite/components/sections/animals_section.html:75
+msgid "Apoie Animal"
+msgstr "Support Animal"
+
+#: mainsite/templates/mainsite/components/sections/animals_section.html:82
+msgid "Ícone de seta para retorno"
+msgstr "Return arrow icon"
+
+#: mainsite/templates/mainsite/components/sections/animals_section.html:98
+msgid "Botão de informações sobre o animal"
+msgstr "Animal information button"
+
+#: mainsite/templates/mainsite/components/sections/animals_section.html:103
+msgid "Botão de reprodução de vídeo"
+msgstr "Video play button"
+
+#: mainsite/templates/mainsite/components/sections/animals_section.html:115
+msgid "Folha verde"
+msgstr "Green leaf"
+
+#: mainsite/templates/mainsite/components/sections/animals_section.html:120
+msgid "Folha laranja"
+msgstr "Orange leaf"
+
+#: mainsite/templates/mainsite/components/sections/animals_section.html:125
+msgid "Pegadas de animal"
+msgstr "Animal footprints"
+
+#: mainsite/templates/mainsite/components/sections/info_section.html:38
+msgid "Visitas regulares"
+msgstr "Regular visits"
+
+#: mainsite/templates/mainsite/components/sections/info_section.html:39
+msgid "Para turistas ou moradores"
+msgstr "For tourists or residents"
+
+#: mainsite/templates/mainsite/components/sections/info_section.html:77
+msgid "Visitas em grupo"
+msgstr "Group visits"
+
+#: mainsite/templates/mainsite/components/sections/info_section.html:78
+msgid "Para escolas ou grupos"
+msgstr "For schools or groups"
+
+#: mainsite/templates/mainsite/components/sections/intro_section.html:28
+msgid "VAMOS JOGAR"
+msgstr "LET'S PLAY"
+
+#: mainsite/templates/mainsite/components/sections/map_section.html:5
+#: templates/mainsite/base.html:57
+msgid "Como chegar"
+msgstr "How to get there"
+
+#: mainsite/templates/mainsite/components/sections/map_section.html:7
+msgid "Nossa localização e informações de contato"
+msgstr "Our location and contact information"
+
+#: mainsite/templates/mainsite/components/sections/map_section.html:20
+msgid "Telefone"
+msgstr "Phone"
+
+#: mainsite/templates/mainsite/components/sections/projects_section.html:6
+msgid "Sobre o projeto"
+msgstr "About the project"
+
+#: mainsite/templates/mainsite/components/sections/testimonials_section.html:5
+msgid "Quem conhece, quer voltar!"
+msgstr "Those who know it want to come back!"
+
+#: mainsite/templates/mainsite/components/sections/testimonials_section.html:20
+msgid "foto do"
+msgstr "photo of"
+
+#: mainsite/templates/mainsite/donations/adopt.html:6
+#: mainsite/templates/mainsite/donations/adopt.html:15
+msgid "Apoie um animal!"
+msgstr "Support an animal!"
+
+#: mainsite/templates/mainsite/donations/adopt.html:13
+msgid "Adoção de animal"
+msgstr "Animal adoption"
+
+#: mainsite/templates/mainsite/donations/adopt.html:22
+msgid "Entenda como funciona:"
+msgstr "Understand how it works:"
+
+#: mainsite/templates/mainsite/donations/adopt.html:38
+msgid "Adote já!"
+msgstr "Adopt now!"
+
+#: mainsite/templates/mainsite/donations/adopt.html:47
+msgid "Imagem de"
+msgstr "Image of"
+
+#: mainsite/templates/mainsite/donations/adopt.html:54
+msgid "Adotar animal"
+msgstr "Adopt animal"
+
+#: mainsite/templates/mainsite/donations/donation.html:6
+#: mainsite/templates/mainsite/donations/donation.html:14
+msgid "Doação"
+msgstr "Donation"
+
+#: mainsite/templates/mainsite/donations/donation.html:16
+msgid "Faça uma doação!"
+msgstr "Make a donation!"
+
+#: mainsite/templates/mainsite/donations/donation.html:24
+msgid "Equipe do ZooUnama"
+msgstr "ZooUnama Team"
+
+#: mainsite/templates/mainsite/donations/donation.html:25
+msgid "Faça uma Doação"
+msgstr "Make a Donation"
+
+#: mainsite/templates/mainsite/donations/donations.html:207
+msgid "Ícone de Coração."
+msgstr "Heart Icon."
+
+#: mainsite/templates/mainsite/donations/donations.html:210
+msgid "Faça uma doação"
+msgstr "Make a donation"
+
+#: mainsite/templates/mainsite/donations/donations.html:215
+#: mainsite/templates/mainsite/donations/donations.html:233
+#: mainsite/templates/mainsite/donations/donations.html:252
+msgid ""
+"Sem informação disponível, entre em contato com o administrador da página."
+msgstr "No information available, please contact the page administrator."
+
+#: mainsite/templates/mainsite/donations/donations.html:219
+#: mainsite/templates/mainsite/donations/donations.html:238
+#: mainsite/templates/mainsite/donations/donations.html:256
+msgid "Saiba mais"
+msgstr "Learn more"
+
+#: mainsite/templates/mainsite/donations/donations.html:228
+msgid "Doe alimentos"
+msgstr "Donate food"
+
+#: mainsite/templates/mainsite/donations/donations.html:244
+msgid "Ícone de cartão postal com coração."
+msgstr "Postcard with heart icon."
+
+#: mainsite/templates/mainsite/donations/donations.html:247
+msgid "Apoie um animal"
+msgstr "Support an animal"
+
+#: mainsite/templates/mainsite/donations/food_donation.html:22
+msgid "Doar Alimento"
+msgstr "Donate Food"
+
+#: mainsite/templates/mainsite/donations/food_donation.html:24
+msgid "Doação de alimentos"
+msgstr "Food Donation"
+
+#: mainsite/templates/mainsite/donations/food_donation.html:33
+msgid "Contribua para a preservação dos animais brasileiros!"
+msgstr "Contribute to the preservation of Brazilian animals!"
+
+#: mainsite/templates/mainsite/donations/food_donation.html:41
+#: mainsite/templates/mainsite/exchange_registration.html:41
+msgid "Enviar"
+msgstr "Send"
+
+#: mainsite/templates/mainsite/exchange.html:70
+msgid "Nenhum edital foi encontrado."
+msgstr "No notices were found."
+
+#: mainsite/templates/mainsite/exchange.html:80
+msgid "Fazer inscrição"
+msgstr "Register"
+
+#: mainsite/templates/mainsite/exchange_registration.html:2
+#: mainsite/templates/mainsite/exchange_registration.html:23
+msgid "Inscrição"
+msgstr "Registration"
+
+#: mainsite/templates/mainsite/exchange_registration.html:27
+msgid "Ver último edital"
+msgstr "View last notice"
+
+#: mainsite/templates/mainsite/exchange_registration.html:32
+msgid "Inscreva-se!"
+msgstr "Sign up!"
+
+#: mainsite/templates/mainsite/related_work.html:43
+msgid "Ver Artigo"
+msgstr "View Article"
+
+#: mainsite/templates/mainsite/related_work.html:86
+msgid "Nenhum trabalho relacionado a este projeto foi encontrado."
+msgstr "No related work for this project was found."
+
+#: templates/mainsite/base.html:54
+msgid "Sobre"
+msgstr "About"
+
+#: templates/mainsite/base.html:60
+msgid "Zoo live"
+msgstr "Zoo live"
+
+#: templates/mainsite/base.html:75
+msgid "Institucional"
+msgstr "Institutional"
+
+#: templates/mainsite/base.html:100
+msgid "Administração"
+msgstr "Administration"
+
+#: templates/mainsite/base.html:124
+msgid "Mudar idioma"
+msgstr "Change language"
+
+#: templates/mainsite/base.html:140
+msgid "Fechar"
+msgstr "Close"
+
+#: templates/mainsite/base.html:141
+msgid "Salvar"
+msgstr "Save"
+
+#: templates/mainsite/base.html:172
+msgid "Fazer Doação"
+msgstr "Make a Donation"
+
+#: templates/mainsite/base.html:176
+msgid "Agendar Visita"
+msgstr "Schedule a Visit"
+
+#: templates/mainsite/base.html:192
+msgid "UNAMA, todos os direitos reservados."
+msgstr "UNAMA, all rights reserved."
+
+#: templates/mainsite/base.html:196
+msgid "Feito por Projeto V3L0Z"
+msgstr "Made by Project V3L0Z"
+
+#~ msgid "Ícone de cesta de supermercado."
+#~ msgstr "Shopping basket icon."
+
+#~ msgid "Ajude nossos animais a ter o alimento diário!"
+#~ msgstr "Help our animals get their daily food!"
+
+#~ msgid ""
+#~ "Nesta modalidade de doação você escolhe um animal para receber o seu "
+#~ "apoio."
+#~ msgstr ""
+#~ "In this donation mode, you choose an animal to receive your support."
+
+#: templates/admin/base_site.html:80
+msgid "Documentação"
+msgstr "Documentation"

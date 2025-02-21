@@ -1,0 +1,46 @@
+{% extends "mainsite/base.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Doação de Alimentos" %}{% endblock title %}
+
+{% block content %}
+<div class="row px-3 px-md-5 g-4" style="margin-top: 3.5rem">
+    <div class="col-12 col-lg-6 mt-5">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <p class="OrangeText d-flex align-items-center uppercase mt-3">
+            <img src="{% static 'assets/public/icons/basket3-fill.svg' %}" alt="{% trans "ícone relacionado à página." %}"
+                class="icon me-3">
+            {% trans "Doar Alimento" %}
+        </p>
+        <h1 id="h1">{% trans "Doação de alimentos" %}</h1>
+    </div>
+</div>
+<div class="row d-flex align-items-center mt-3 mb-5 px-3 px-md-5 g-2">
+    <img src="{% static 'assets/public/icons/basket3-fill.svg' %}" class="footprint-up mt-5"
+        style="transform: rotate(15deg)" alt="{% trans "ícone relacionado à página." %}">
+    <div class="col-12 col-lg-6 fs-4" style="text-align: justify;">
+        {{food_donation.description|linebreaks}}
+        <form method="post" class="fs-5">
+            <h4 class="my-3">{% trans "Contribua para a preservação dos animais brasileiros!" %}</h4>
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-floating mb-3 text-success">
+                {{ field }}
+                {{ field.label_tag }}
+            </div>
+            {% endfor %}
+            <button class="btn btn-md btn btn-success" type="submit">{% trans "Enviar" %}</button>
+        </form>
+    </div>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% load static %}
+<div class="row w-100">
+  <div class="col-12 col-xl-6 d-flex align-items-center">
+    <div class="ZooLive_container_text mb-0">
+      <p class="OrangeText">Zoo Live</p>
+      <h1 class="h1ZooLive" data-animation="fade-up">
+        {{ livezoo.title }}
+      </h1>
+      <p class="textZooLive mt-3" data-animation="fade-up">
+        {{ livezoo.description }}
+      </p>
+    </div>
+  </div>
+  <div class="col-12 col-xl-6 my-4" id="promocional">
+  <video class="promocional" controls="controls" data-aos-delay="350" data-animation="flip" {% if not livezoo.video %}preload="none"
+      poster="{% static '/assets/public/img/main.png' %}"  style="object-fit: cover;" {% endif %}>
+      {% if livezoo.video %}
+       <source src="{{ livezoo.video.url }}" type="video/mp4"/>
+      {% endif %}
+    </video>
+    
+    
+  </div>
+</div>

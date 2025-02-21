@@ -1,0 +1,26 @@
+{% extends "mainsite/base.html" %}
+{% load i18n %}
+{% block title %}{{ object.subtitle }}{% endblock title %}
+{% block content %}
+<div class="row d-flex justify-content-center align-items-end mt-5 mb-0 px-3 px-md-5 g-2">
+    <div class="col-12 mt-5">
+        <p class="Orangetext d-flex align-items-center uppercase mt-3">
+            {% for image in object.images.all %}
+            <img src="{{ image.image.url }}" alt="{% trans 'ícone relacionado à página.' %}" class="icon me-3">
+            {% endfor %}
+            {{ object.subtitle }}
+        </p>
+        <h1 id="h1">{{ object.title }}</h1>
+    </div>
+</div>
+<div class="row d-flex align-items-center mt-3 mb-5 px-3 px-md-5 g-2">
+    {% for image in object.images.all %}
+    <img src="{{ image.image.url }}" class="footprint-up mt-5" style="transform: rotate(15deg)" alt="{% trans 'ícone relacionado à página.' %}">
+    {% endfor %}
+    <div class="col-12 col-lg-9">
+        <p class="fs-6" style="text-align: justify;">
+            {{ object.description|linebreaksbr }}
+        </p>
+    </div>
+</div>
+{% endblock content %}

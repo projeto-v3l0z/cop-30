@@ -1,0 +1,29 @@
+{% extends "mainsite/base.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Doação" %}{% endblock title %}
+
+{% block content %}
+<div class="row px-3 px-md-5 g-4" style="margin-top: 3.5rem">
+    <div class="col-12 mt-5">
+        <p class="OrangeText d-flex align-items-center uppercase mt-3">
+            <img src="{% static 'assets/public/icons/suit-heart-fill.svg' %}" alt="{% trans "ícone relacionado à página." %}"
+                class="icon me-3">
+            {% trans "Doação" %}
+        </p>
+        <h1 id="h1">{% trans "Faça uma doação!" %}</h1>
+    </div>
+</div>
+<div class="row d-flex align-items-center mt-3 mb-5 px-3 px-md-5 g-2">
+    <img src="{% static 'assets/public/icons/suit-heart-fill.svg' %}" class="footprint-up mt-5"
+        style="transform: rotate(15deg)" alt="{% trans "ícone relacionado à página." %}">
+    <div class="col-12 col-lg-9 fs-5" style="text-align: justify;">
+        {{donations.description|linebreaksbr}}
+            <b>{% trans "Equipe do ZooUnama" %}</b></p>
+            <a href="https://pag.ae/7ZyTRGTnP" target="_blank" role="button" class="btn btn-lg btn-success w-100 fs-5 mt-3">{% trans "Faça uma Doação" %}</a>
+    </div>
+</div>
+</div>
+{% endblock content %}

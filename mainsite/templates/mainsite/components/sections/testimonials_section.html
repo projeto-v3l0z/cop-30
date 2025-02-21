@@ -1,0 +1,37 @@
+{% load i18n %}
+{% load static %}
+<div class="col-12">
+  <p class="depoiment__emphasis OrangeText">{% trans "Depoimentos" %}</p>
+  <h1 class="depoiment__h1">{% trans "Quem conhece, quer voltar!" %}</h1>
+</div>
+
+<div class="col-12">
+  <div
+    style="--swiper-navigation-color: #00d37f; --swiper-pagination-color: #00d37f"
+    class="swiperDepoiments depoimentsSwiper"
+    data-swiper
+  >
+    <div class="swiper-wrapper">
+      {% if testimonials %}
+        {% for testimonial in testimonials %}
+          <div class="swiper-slide">
+            <img
+              src="{{ testimonial.images.first.image.url }}"
+              alt="{% trans "foto do" %} {{ testimonial.titulo }}"
+              class="swiper__img"
+              loading="lazy"
+            />
+            <p class="depoimentText">“{{ testimonial.description }}”.</p>
+            <p class="userName">
+              <span class="emphasis">{{ testimonial.title }},</span>
+                {{ testimonial.subtitle }}
+            </p>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>

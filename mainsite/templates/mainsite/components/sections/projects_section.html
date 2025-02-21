@@ -1,0 +1,51 @@
+{% load i18n %}
+{% load static %}
+<div class="row justify-content-center align-items-center g-2">
+
+  <div class="col-12 col-lg-6">
+    <p class="projectSection__emphasis mb-sm-4 OrangeText">{% trans "Sobre o projeto" %}</p>
+    <h1 class="projectSection__h1 mb-5" data-animation="fade-up">
+      {{ aboutproject.title|default:"" }}
+    </h1>
+    <p class="projectSection__text w-100" data-animation="fade-up" data-aos-delay="250">
+      {{ aboutproject.description|default:"" }}
+    </p>
+
+    <div class="projectSection__containerInfo">
+      <div class="projectSection__area">
+        <p>
+          <span data-area class="projectSection__area--counter numero">{{ zooarea.title|default:"" }}</span>
+        </p>
+        <div>{{ zooarea.description|default:"" }}</div>
+      </div>
+      <div class="projectSection__species">
+        <p class="numero" data-species>{{ zoospecies.title|default:"" }}</p>
+        <div>{{ zoospecies.description|default:"" }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="col-12 col-lg-6 swipper__container d-lg-flex flex-lg-row justify-content-lg-between align-content-lg-center">
+    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2 mx-xl-0">
+      <div class="swiper-wrapper">
+        {% for image in aboutproject.images.all %}
+        <div class="swiper-slide">
+          <img class="image-banner rounded img-fluid d-sm-block" src="{{ image.image.url }}" alt="" loading="lazy" />
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div thumbsSlider="" class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        {% for image in aboutproject.images.all %}
+        <div class="swiper-slide">
+          <img class="images-swiper-menor" src="{{ image.image.url }}" loading="lazy" />
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+</div>

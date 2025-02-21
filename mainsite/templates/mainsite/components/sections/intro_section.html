@@ -1,0 +1,31 @@
+{% load i18n %}
+{% load static %}
+
+<div class="introSection__right"></div>
+<div class="introSectionSlide">
+  <div class="slideintroSectionItem swiper mySwiper3">
+    <div class="swiper-wrapper">
+        {% for image in bannermain.images.all %}
+          <div class="swiper-slide">
+            <img src="{{ image.image.url }}" class="introSectionImage" />
+          </div>
+        {% endfor %}
+    </div>
+  </div>
+</div>
+<div class="introSection__leaf"></div>
+{% if bannermain %}
+  <div class="col-12 pt-xl-5">
+    <h2 class="introSection__h2">ZOOUNAMA</h2>
+    <h1 class="introSection__h1" data-aos="fade-up">
+      {{ bannermain.title }}
+    </h1>
+    <p class="introSection__text" data-aos="fade-up" data-aos-delay="250">
+      {{ bannermain.description }}
+    </p>
+
+    <a href="https://amarcel.github.io/jogo-memoria-zoo-unama/" target="_blank">
+      <button class="btnGame" type="button">{% trans "VAMOS JOGAR" %}</button>
+    </a>
+  </div>
+{% endif %}

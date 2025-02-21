@@ -1,0 +1,91 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block extrahead %}
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,300&display=swap"
+    rel="stylesheet" />
+<style>
+    html[data-theme="light"],
+    :root {
+        --primary: #363D2D;
+        --secondary: #363D2D;
+        --accent: #FFF;
+        --header-color: #FE9C66;
+        --breadcrumbs-bg: #47503c;
+        --link-hover-color: #FE9C66;
+        --button-hover-bg: #00D37F;
+        --default-button-bg: #318D71;
+        --default-button-hover-bg: #00D37F;
+    }
+
+    html[data-theme="dark"] {
+        --primary: #363D2D;
+        --body-quiet-color: #00D37F;
+        --breadcrumbs-bg: #47503C;
+        --link-hover-color: #FE9C66;
+    }
+
+    #site-name {
+        font-family: "Ubuntu", sans-serif;
+        font-size: 1.5rem;
+    }
+
+    body {
+        background: radial-gradient(87.5% 286.2% at 97.29% 95.5%, #014751 0%, #276e5b 61.94%);
+    }
+
+    #toggle-nav-sidebar {
+        background: var(--breadcrumbs-bg);
+        color: var(--breadcrumbs-fg);
+    }
+
+    #content h1 {
+        color: var(--header-color);
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    #content h2 {
+        color: var(--header-link-color);
+    }
+
+    
+    .form-row div .flex-container, .actions {
+        display: flex;
+        padding: 0 0.5rem;
+    }
+
+    #changelist .actions {
+        padding: 1rem!important;
+        width: auto!important;
+    }
+
+    .paginator {
+        width: auto!important;
+    }
+
+    #changelist {
+        background: none;
+        background-color: #00000000;
+    }
+</style>
+
+<script>
+    // custom_admin.js
+    document.addEventListener("DOMContentLoaded", function () {
+        // Encontre o elemento <div> com id="user-tools"
+        var userToolsDiv = document.getElementById("user-tools");
+
+        // Crie o link
+        var customLink = document.createElement("a");
+        customLink.textContent = " / {% trans 'Documentação' %}";
+        customLink.href = "{% url 'mainsite:admin-docs' %}";
+        customLink.setAttribute('target', '_blank');
+
+        // Encontre o link existente "Ver o site"
+        var verSiteLink = userToolsDiv.querySelector('a[href="/"]');
+
+        // Insira o link personalizado imediatamente após o link "Ver o site"
+        verSiteLink.insertAdjacentElement('afterend', customLink);
+    });
+</script>
+{% endblock %}

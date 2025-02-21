@@ -1,0 +1,174 @@
+{% extends "mainsite/base.html" %}
+{% block title %}UNAMAZOO{% endblock title %}
+{% load static %}
+{% load i18n %}
+
+{% block scripts %}
+<script data-pace-options='{ "restartOnPushState": false, "restartOnRequestAfter": false }'
+    src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js" defer></script>
+<script src="{% static 'assets/scripts/swiper-bundle.min.js' %}" defer></script>
+<script src="{% static 'assets/scripts/swiperComponents/imagesInfoSwiper.js' %}" defer></script>
+<script type="module" src="{% static 'assets/scripts/swiperComponents/projectsSwiper.js' %}" defer></script>
+<script type="module" src="{% static 'assets/scripts/swiperComponents/depoimentsSwiper.js' %}" defer></script>
+<script src="{% static '/assets/scripts/animateNumbers.js' %}" defer></script>
+{% endblock scripts %}
+
+{% block styles %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<style>
+    header {
+        @media screen and (min-width: 768px) {
+            position: absolute;
+            background: transparent;
+        }
+    }
+</style>
+{% endblock styles %}
+
+{% block content %}
+<section class="introSection introSection__background" id="introSection">
+  <div class="container-xl container-xxl d-flex justify-content-center align-items-center">
+    {% include './components/sections/intro_section.html'%}
+  </div>
+</section>
+
+<section class="infoSection" id="sobre">
+  <div class="container-xl container-xxl justify-content-center align-items-center p-95">
+    {% include './components/sections/info_section.html' %}
+  </div>
+</section>
+
+<section class="projectSection d-flex flex-lg-row justify-content-center align-content-center" id="projetos">
+  <div class="container-xl container-xxl justify-content-center align-items-center">
+    {% include './components/sections/projects_section.html' %}
+  </div>
+</section>
+
+<section class="ZooAnimals d-flex flex-lg-row justify-content-center align-content-center" id="animais">
+  <div class="container-xl container-xxl row justify-content-center align-items-center">
+    {% include './components/sections/animals_section.html' %}
+  </div>
+</section>
+
+{% if livezoo %}
+<section class="ZooLive" id="ZooLive">
+  <div class="container-xl container-xxl justify-content-center align-items-center d-flex w-100">
+    {% include './components/sections/zoolive_section.html' %}
+  </div>
+</section>
+{% endif %}
+
+<section class="depoiment justify-content-lg-center align-content-lg-center" id="depoimentos">
+  <div class="container-xl container-xxl">
+    {% include './components/sections/testimonials_section.html' %}
+  </div>
+</section>
+
+<section class="mapSection d-lg-flex flex-lg-row justify-content-lg-center align-content-lg-center" id="map">
+  <div class="container-xl container-xxl justify-content-center align-items-center">
+    {% include './components/sections/map_section.html' %}
+  </div>
+</section>
+{% endblock content %}
+
+{% block more_scripts %}
+<script defer>
+    let videos = [
+        {% for animal in animals %}
+    {
+        video:
+        "{{ animal.video }}",
+        },
+    {% endfor %}
+    ]
+    // Flip dos Cards e Pop-Up dos Vídeos
+    let InfoButton = document.getElementsByClassName("InfoButton");
+    let cardAnimal = document.getElementsByClassName("CardAnimal");
+    let ArrowBack = document.getElementsByClassName("ArrowBack");
+    let CardAnimalArray = [...cardAnimal];
+    let PlayButton = document.getElementsByClassName("PlayButton");
+    let containerDialogVideo = document.querySelector(".dialogVideoOverlay");
+    let CloseButton = document.querySelector(".CloseButton");
+    let videoElement = document.getElementById("animalVideo");
+
+    [...InfoButton].forEach((item, i) => {
+        item.addEventListener("click", (e) => {
+            CardAnimalArray[i].classList.toggle("CardAnimal");
+        });
+    });
+
+    [...ArrowBack].forEach((item, i) => {
+        item.addEventListener("click", (e) => {
+            CardAnimalArray[i].classList.toggle("CardAnimal");
+        });
+    });
+
+    [...PlayButton].forEach((item, i) => {
+        item.addEventListener("click", (e) => {
+            e.stopPropagation();
+            containerDialogVideo.classList.add("open");
+            videoElement.src = videos[i].video;
+        });
+    });
+
+    CloseButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        videoElement.src = "";
+        containerDialogVideo.classList.remove("open");
+    });
+
+    // Animação de Fade-Up ao Rolar a Tela
+
+    const animatedElements = document.querySelectorAll('[data-animation]'); // Seleciona todos os elementos que possuem o atributo 'data-animation'.
+
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    } // Função que verifica se um elemento está dentro da área visível da página
+
+    function animateElements() {
+        for (let i = 0; i < animatedElements.length; i++) {
+            const el = animatedElements[i];
+            if (isElementInViewport(el)) {
+                el.classList.add('animate');
+            }
+        }
+    } // Função que aplica a classe 'animate' nos elementos que estão dentro da área visível da página
+
+    window.addEventListener('scroll', function () { //Adiciona um evento de rolagem na página
+        if (!animatedElements.length) {
+            window.removeEventListener('scroll', this);
+            return;
+        } // Remove o evento de rolagem depois que todos os elementos foram animados
+
+
+        animateElements();
+
+        for (let i = 0; i < animatedElements.length; i++) {
+            const el = animatedElements[i];
+            if (el.classList.contains('animate')) {
+                animatedElements.splice(i, 1);
+                i--;
+            }
+        } // Remove os elementos já animados da lista de elementos
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var delay = 5000;
+        var modalSelector = "#donationModal";
+        var modal = new bootstrap.Modal(document.querySelector(modalSelector));
+
+        function exibirModal() {
+            modal.show();
+        }
+
+        setTimeout(exibirModal, delay);
+    });
+</script>
+{% endblock more_scripts %}

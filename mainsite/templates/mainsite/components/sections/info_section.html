@@ -1,0 +1,99 @@
+{% load i18n %}
+{% load static %}
+
+<div class="infoSection__container">
+  {% if infosuperior %}
+  <div class="infoSection__firstEl">
+    <img
+      src="{% if infosuperior.images.count > 0 %}{{ infosuperior.images.first.image.url }}{% endif %}"
+      alt="india"
+      class="infoSection__img"
+      loading="lazy"
+    />
+    <div class="infoSection__data">
+      <div class="infoSection__title">{{infosuperior.title}}</div>
+      <div class="infoSection__subtitle">{{infosuperior.description}}</div>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="infoSection__list">
+    <ul class="list" data-ul>
+      <li class="infoItem">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="infoIcon"
+        >
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <div>
+          <p class="infoItem__title">{% trans "Visitas regulares" %}</p>
+          <p class="infoItem__subtitle">{% trans "Para turistas ou moradores" %}</p>
+        </div>
+
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="infoIconArrow"
+        >
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </li>
+
+      <li class="infoItem">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-grid _infoItem__icon_yhqkk_8 infoIcon"
+        >
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+
+        <div>
+          <p class="infoItem__title">{% trans "Visitas em grupo" %}</p>
+          <p class="infoItem__subtitle">{% trans "Para escolas ou grupos" %}</p>
+        </div>
+
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="infoIconArrow"
+        >
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </li>
+    </ul>
+  </div>
+
+  
+</div>

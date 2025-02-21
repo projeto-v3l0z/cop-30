@@ -1,0 +1,24 @@
+{% load i18n %}
+{% load static %}
+<div class="row justify-content-center align-items-center g-2">
+  <div class="mapSection__textContainer">
+    <p class="mapSection__emphasis OrangeText">{% trans "Como chegar" %}</p>
+    <h1 class="mapSection__h1">
+      {% trans "Nossa localização e informações de contato" %}
+    </h1>
+  </div>
+
+  <div class="mapSection__mapContainer">
+    <iframe class="mapSection__map"
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15944.564048282247!2d-54.7332967!3d-2.4601379!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd135a05ac7255204!2sZOOUNAMA!5e0!3m2!1spt-BR!2sbr!4v1657575773683!5m2!1spt-BR!2sbr"
+      width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    <button type="button" class="mapSection__wpp">
+      <a class="mapSection__link" target="_blank" href="tel:+5591991871481">
+        <i data-feather="message-circle"></i>
+        <span>{% trans "Telefone" %}</span>
+      </a>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+{% extends "mainsite/base.html"%}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Intercâmbio" %}{% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />{% endblock styles %}
+{% block content %}
+<div class="row px-3 px-md-5 g-4">
+    <div class="col-12 col-lg-6 mt-5">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<div class="row d-flex align-items-top justify-content-center mt-3 mb-5 px-3 px-md-5 g-5">
+    <div class="col-12 col-lg-6 fs-4" style="text-align: justify;">
+        <p class="OrangeText d-flex align-items-center uppercase mt-3">
+            {% trans "Intercâmbio" %}
+        </p>
+        <h1 id="h1">{% trans "Intercâmbio" %}</h1>
+        <p>{{ exchange.description|linebreaks }}</p>
+        </div>                   
+    <aside class="col-12 col-lg-5 fs-4 notices">
+        <h2 class="text-center mt-5 mb-2">{% trans "Editais" %}</h2>
+        {% if notices %}
+        <div class="accordion-container" style="max-height: 270px; overflow-y: auto;">
+            <div class="accordion" id="accordionExample">
+                {% regroup notices by year as year_list %}
+                {% for year_item in year_list %}
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading{{ year_item.grouper }}">
+                            <button class="accordion-button collapsed text-light" style="background-image: radial-gradient(87.5% 260.2% at 97.29% 95.5%, #014751 10%, #29775f 100%)" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ year_item.grouper }}" aria-expanded="false" aria-controls="collapse{{ year_item.grouper }}">
+                                {{ year_item.grouper }}
+                            </button>
+                        </h2>
+                        <div id="collapse{{ year_item.grouper }}" class="accordion-collapse collapse" aria-labelledby="heading{{ year_item.grouper }}" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="list-group">
+                                    {% for notice in year_item.list %}
+                                    <div class="d-flex justify-content-between align-items-center list-group-item list-group-item-action">
+                                        <div>
+                                            {{ notice.title }}
+                                        </div>
+                                        <div>
+                                            <a data-bs-toggle="tooltip" data-bs-placement="top" title="Download" href="{% url 'mainsite:download_file' pk=notice.pk %}" target="_blank">
+                                                <i class="bi bi-download text-success fs-2"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% else %}
+        <div class="row d-flex align-items-center justify-content-center mt-3 mb-5 px-3 px-md-5 g-2">
+            <div class="col-12 col-lg-6 fs-4">
+                <p>{% trans "Nenhum edital foi encontrado." %}</p>
+            </div>
+        </div>
+        {% endif %}
+    </aside>
+</div>
+<div class="fixed-bottom-button">
+    <div class="row align-items-center d-flex"> 
+        <div class="col justify-content-center align-items-center d-flex my-3">
+            <a href="{% url 'mainsite:exchange_registration' %}">
+                <button class="btn btn-md btn btn-success" type="submit">{% trans "Fazer inscrição" %}</button>
+            </a>
+        </div> 
+    </div>
+</div>
+
+
+<script>
+    const accordionItems = document.querySelectorAll('.accordion-item');
+
+    accordionItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const isOpen = item.classList.contains('show');
+            accordionItems.forEach(innerItem => {
+                innerItem.classList.remove('show');
+            });
+            if (!isOpen) {
+                item.classList.add('show');
+            }
+        });
+    });
+</script>
+{% endblock content %}

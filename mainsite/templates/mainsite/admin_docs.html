@@ -1,0 +1,26 @@
+{% extends "mainsite/base.html" %}
+
+{% block title %}{% trans "Documentação da Administração" %}{% endblock title %}
+
+{% block metatags %}
+{% endblock metatags %}
+    
+
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center g-2">
+    <div class="col-12 col-8 d-flex justify-content-center" id="pdf-viewer" style="height: 100vh;">
+        <iframe src="{% static 'assets/public/docs/Documentação da Página de Administração.pdf' %}" class="w-100"></iframe>
+    </div>
+</div>
+{% endblock content %}
+
+{% block more_scripts %}
+<script>
+    document.getElementById('footer').classList.add('d-none')
+    document.getElementById('header').classList.add('d-none')
+    document.getElementById('floating-btn').classList.add('d-none')
+</script>
+{% endblock more_scripts %}

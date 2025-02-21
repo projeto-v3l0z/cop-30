@@ -1,0 +1,64 @@
+{% extends "mainsite/base.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Apoie um animal!" %}{% endblock title %}
+
+{% block content %}
+<div class="row px-3 px-md-5 g-4" style="margin-top: 3.5rem">
+    <div class="col-12 mt-5">
+        <p class="OrangeText d-flex align-items-center uppercase mt-3">
+            <img src="{% static 'assets/public/icons/postcard-heart.svg' %}" alt="ícone relacionado à página." class="icon me-3">
+            {% trans "Adoção de animal" %}
+        </p>
+        <h1 id="h1">{% trans "Apoie um animal!" %}</h1>
+    </div>
+</div>
+<div class="row d-flex align-items-center mt-3 mb-5 px-3 px-md-5 g-2">
+    <img src="{% static 'assets/public/icons/postcard-heart.svg' %}" class="footprint-up mt-5"
+        style="transform: rotate(15deg)" alt="ícone relacionado à página.">
+    <div class="col-12 col-lg-7 fs-4" style="text-align: justify;">
+        <p class="mb-2 lead">{% trans "Entenda como funciona:" %}</p>
+        <p class="mb-4">{{adoption.description|linebreaks}}</p>
+        <div class="row row-cols-1 row-cols-md-3 g-4 fs-6" style="text-align: start;">
+            {% for animal in animals %}
+            {% if animal.name == "Arara-Vermelha" or animal.name == "gavião-real" %}
+            <div class="col">
+                <div class="card" style="min-height: 20rem;">
+                    <div class="ratio ratio-4x3 bg-dark-subtle">
+                        <img class="card-img-top object-fit-contain" src="{{ animal.main_image.url }}"
+                            alt="Imagem de {{ animal.name }}">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title text-capitalize">{{ animal.name }}</h4>
+                        <small class="card-text small">({{ animal.scientific_name }})</small>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ animal.adoption_link }}" role="button" class="btn btn-sm btn-success w-100">{% trans "Adote já!" %}</a>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col">
+                <div class="card" style="min-height: 20rem;">
+                    <div class="ratio ratio-4x3">
+                        <img class="card-img-top object-fit-cover" src="{{ animal.main_image.url }}"
+                            alt="{% trans "Imagem de" %} {{ animal.name }}">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title text-capitalize">{{ animal.name }}</h4>
+                        <small class="card-text small">({{ animal.scientific_name }})</small>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-success text-light w-100" href="#" role="button">{% trans "Adotar animal" %}</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content %}

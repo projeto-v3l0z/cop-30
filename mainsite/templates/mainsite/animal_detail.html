@@ -1,0 +1,31 @@
+{% extends "mainsite/base.html" %}
+{% block title %}{{ animal.name }}{% endblock title %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="container animal" style="margin-top: 10vh;">
+  <div class="row">
+    <div class="col-12 col-md-6 mt-4 text-center">
+      <img
+        src="{{ animal.main_image.url }}"
+        alt="{% trans 'Foto de' %} {{ animal.name }}"
+        class="img-fluid rounded"
+      />
+    </div>
+    <div class="col-12 col-md-6 mt-4">
+      <h1>{{ animal.name|title }}</h1>
+      <p><i class="fas fa-spa"></i> {{ animal.scientific_name }}</p>
+      <p><i class="fas fa-paw"></i> {{ animal.type }}</p>
+      <p><i class="fas fa-hourglass-half"></i> {{animal.lifetime}} {% if animal.lifetime > 1 %} {% trans "anos" %}{% else %}
+        {% trans "ano" %} {% endif %}</p>
+      <p><i class="fas fa-carrot"></i> {{ animal.diet }}</p>
+      <p><i class="fas fa-weight-hanging"></i> {{ animal.weight }} {{ animal.weight_measure }}</p>
+      {% if animal.description %}
+      <p class="pt-3">{{ animal.description|linebreaks }}</p>
+      {% else %}
+      <p class="pt-3">Esse animal ainda não possui descrição.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock content %}
